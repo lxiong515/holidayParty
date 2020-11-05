@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Raleway&display=swap" rel="stylesheet">
+<title></title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentPresents : ${presents}">
+<td th:text="${currentPresents.id}"/>
+<td th:text="${currentPresents.name}"/>
+<td th:text="${currentPresents.present}"/>
+<td th:text="${currentPresents.relationship}"/>
+<td th:text="${currentPresents.holidayParty.host}"/>
+<td th:text="${currentPresents.holidayParty.street}"/>
+<td th:text="${currentPresents.holidayParty.city}"/>
+<td th:text="${currentPresents.holidayParty.state}"/>
+<td th:text="${currentPresents.holidayParty.day}"/>
+<td th:text="${currentPresents.holidayParty.time}"/>
+<td><a th:href="@{/edit/{id}(id=${currentPresents.id})}">Edit</a></td>
+<td><a th:href="@{/delete/{id}(id=${currentPresents.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+<a href="../inputPresents">Add to Presents list</a>
+
+<h1 style= "font-family:Luckiest Guy" th:text="'Your elf name is: ' + ${name.elfName} + ''"/>
+<p style= "font-family:Raleway"><b> Thanks for playing! Try a new name? </b></p>
+
+<a href="pickacategory?choice=name" style= "font-family:Raleway">Generate Name!</a>
+</body>
+</html>
